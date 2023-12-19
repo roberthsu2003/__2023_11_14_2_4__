@@ -1,5 +1,6 @@
 import pyinputplus as pyip
-from outter.tools import getStudents,saveToCSV
+from outter import getStudents
+from outter.tools import saveToCSV
 
 if __name__ == '__main__':
     s_nums:int = pyip.inputInt("請輸入學生的人數(1~50):",min=1,max=50)
