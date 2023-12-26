@@ -7,3 +7,4 @@ if __name__ == "__main__":
     students:list[dict] = getStudents(s_nums)
     fileName:str = pyip.inputFilename("請輸入檔案名稱(不用輸入副檔名稱):")
     save_to_csv(students,fileName)
+    
