@@ -1,6 +1,7 @@
 from random import randint,choices
 import csv
 from csv import DictWriter
+from openpyxl import Workbook
 
 def getStudents(nums:int) -> list[dict]:  
     students:list[dict] = []
@@ -33,5 +34,19 @@ def save_to_csv(students:list[dict],fileName:str)->None:
 
 def save_to_excel(students:list[dict],fileName:str) -> None:
     fileNameWithExtension:str = fileName + ".xlsx"
-    print(f"檔案名是{fileNameWithExtension}")
-    print(students)
+    #print(f"檔案名是{fileNameWithExtension}")
+    #print(students)
+    wb = Workbook()
+    ws = wb.active
+    ws.title = fileName
+    ws['A1'] = "姓名"
+    ws['B1'] = "國文"
+    ws['C1'] = "英文"
+    ws['D1'] = "數學"
+    ws['E1'] = "地理"
+    ws['F1'] = "歷史"
+    for student in students:
+        #ws.append(['楊易政',80,63,60,98,74])
+        studentData:list = list(student.values())
+        ws.append(studentData)
+    wb.save(fileNameWithExtension)
