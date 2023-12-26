@@ -30,3 +30,8 @@ def save_to_csv(students:list[dict],fileName:str)->None:
         writer.writeheader()
         writer.writerows(students)
     print("寫入成功")
+
+def save_to_excel(students:list[dict],fileName:str) -> None:
+    fileNameWithExtension:str = fileName + ".xlsx"
+    print(f"檔案名是{fileNameWithExtension}")
+    print(students)
